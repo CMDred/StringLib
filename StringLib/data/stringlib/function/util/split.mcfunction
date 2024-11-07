@@ -32,4 +32,13 @@
 ## The output is found in the 'stringlib:output split' data storage                                     ##
 ##########################################################################################################
 
+# Get the position where the separator are located
+data modify storage stringlib:input find set from storage stringlib:input split
+data modify storage stringlib:input find.Find set from storage stringlib:input split.Separator
+execute store result score #StringLib.SplitAmount StringLib run function stringlib:util/find
+scoreboard players operation #StringLib.RemainingSplits StringLib = #StringLib.SplitAmount StringLib
+
+# Get separator length
+execute store result score #StringLib.FindLength StringLib run data get storage stringlib:input split.Separator
+
 
