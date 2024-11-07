@@ -18,3 +18,4 @@ data modify storage stringlib:output concat set from storage stringlib:temp data
 
 # Reset
 data remove storage stringlib:temp data
+return 1
