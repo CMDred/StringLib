@@ -56,6 +56,10 @@ class stringlib:
         # Get separator length
         self.score["#StringLib.FindLength"] = len(self.input["split"]["Separator"])
 
+        # Return
+        self.score["#StringLib.SplitAmount"] += 1
+        return self.score["#StringLib.SplitAmount"]
+
 # Tests
 lib = stringlib()
 if True:  # Test - Find     // ensure my implementation works the same as the allready existing one

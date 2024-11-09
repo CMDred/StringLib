@@ -45,4 +45,7 @@ data modify storage stringlib:temp data.SplitIndexes set from storage stringlib:
 # Get separator length
 execute store result score #StringLib.FindLength StringLib run data get storage stringlib:input split.Separator
 
+# Return
+scoreboard players add #StringLib.SplitAmount StringLib 1
+return run scoreboard players get #StringLib.SplitAmount StringLib
 
