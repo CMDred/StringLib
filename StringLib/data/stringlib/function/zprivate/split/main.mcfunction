@@ -13,6 +13,13 @@ execute store result score #StringLib.SplitStart StringLib run data remove stora
 scoreboard players operation #StringLib.SplitStop StringLib = #StringLib.SplitStart StringLib
 scoreboard players operation #StringLib.SplitStop StringLib += #StringLib.FindLength StringLib
 
+# Store the scores in the temp storage
+execute store result storage stringlib:temp data.SplitStart int 1 run scoreboard players get #StringLib.SplitStart StringLib
+execute store result storage stringlib:temp data.SplitStop int 1 run scoreboard players get #StringLib.SplitStop StringLib
+
+# Split the string
+function stringlib:zprivate/split/split with storage stringlib:temp data
+
 # Loop through the split indexes
 scoreboard players remove #StringLib.RemainingSplits StringLib 1
 execute if score #StringLib.RemainingSplits StringLib matches 1.. run function stringlib:zprivate/split/main

@@ -75,9 +75,24 @@ class stringlib:
         self.score["#StringLib.SplitStop"] = self.score["#StringLib.SplitStart"]
         self.score["#StringLib.SplitStop"] += self.score["#StringLib.FindLength"]
 
+        # Store the scores in the temp storage
+        self.temp["data"]["SplitStart"] = int(self.score["#StringLib.SplitStart"]) * 1
+        self.temp["data"]["SplitStop"] = int(self.score["#StringLib.SplitStop"]) * 1
+
+        # Split the string
+        self.zprivate_split_split(self.temp["data"])
+
         # Loop through the split indexes
         self.score["#StringLib.RemainingSplits"] -= 1
         if self.score["#StringLib.RemainingSplits"] >= 1: self.zprivate_split_main()
+
+    def zprivate_split_split(self, input: dict[str, any]):
+        String = input["String"]
+        SplitStart = input["SplitStart"]
+        SplitStop = input["SplitStop"]
+
+        self.output["split"].insert(0, String[SplitStop:])
+        self.temp["data"]["String"] = String[0:SplitStart]
 
 # Tests
 lib = stringlib()
@@ -98,6 +113,37 @@ if True:  # Test - Find     // ensure my implementation works the same as the al
         lib.input = {"find": {"String": "Hello World!", "Find": "l", "Amount": -2}}
         asserts.equal(lib.find(), 2)
         asserts.equal(lib.output["find"], [9, 3])
+if True:  # Test - zprivate - split - split
+    print("Test - zprivate - split - split")
+    if True:  # Test - zprivate - split - split - 1
+        print("1 - Test - zprivate - split - split")
+        lib.temp["split"] = {"String": "Hello World !", "SplitStart": 5, "SplitStop": 7}
+        lib.output["split"] = []
+        lib.zprivate_split_split(lib.temp["split"])
+        asserts.equal(lib.output["split"], ["orld !"])
+        asserts.equal(lib.temp["data"]["String"], "Hello")
+    if True:  # Test - zprivate - split - split - 2
+        print("2 - Test - zprivate - split - split")
+        lib.temp["split"] = {"String": "Hello World !", "SplitStart": 0, "SplitStop": 5}
+        lib.output["split"] = []
+        lib.zprivate_split_split(lib.temp["split"])
+        asserts.equal(lib.output["split"], [" World !"])
+        asserts.equal(lib.temp["data"]["String"], "")
+    if True:  # Test - zprivate - split - split - 3
+        print("3 - Test - zprivate - split - split")
+        lib.temp["split"] = {"String": "Hello World !", "SplitStart": 5}
+        lib.temp["split"]["SplitStop"] = len(lib.temp["split"]["String"])
+        lib.output["split"] = []
+        lib.zprivate_split_split(lib.temp["split"])
+        asserts.equal(lib.output["split"], [""])
+        asserts.equal(lib.temp["data"]["String"], "Hello")
+    if True:  # Test - zprivate - split - split - 4
+        print("4 - Test - zprivate - split - split")
+        lib.temp["split"] = {"String": "Hello World !", "SplitStart": 5, "SplitStop": 7}
+        lib.output["split"] = ["Hello"]
+        lib.zprivate_split_split(lib.temp["split"])
+        asserts.equal(lib.output["split"], ["orld !", "Hello"])
+        asserts.equal(lib.temp["data"]["String"], "Hello")
 if True:  # Test - zprivate - split - main
     print("Test - zprivate - split - main")
     if True:  # Test - zprivate - split - main - 1
