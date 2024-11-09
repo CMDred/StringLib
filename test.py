@@ -49,6 +49,10 @@ class stringlib:
         self.score["#StringLib.SplitAmount"] = self.find()
         self.score["#StringLib.RemainingSplits"] = self.score["#StringLib.SplitAmount"]
 
+        # Get the list of required variables
+        self.temp["data"]["String"] = self.input["split"]["String"]
+        self.temp["data"]["SplitIndexes"] = self.output["find"]
+
         # Get separator length
         self.score["#StringLib.FindLength"] = len(self.input["split"]["Separator"])
 
