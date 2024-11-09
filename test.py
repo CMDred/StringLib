@@ -52,6 +52,9 @@ class stringlib:
         # Get the list of required variables
         self.temp["data"]["String"] = self.input["split"]["String"]
         self.temp["data"]["SplitIndexes"] = self.output["find"]
+        # Is the list of indexes reversed?
+        self.score["#StringLib.IsReversed"] = self.input["split"]["Amount"]
+        self.score["#StringLib.IsReversed"] = 1 if self.score["#StringLib.IsReversed"] <= -1 else 0
 
         # Empty the output
         self.output["split"] = []
@@ -69,7 +72,8 @@ class stringlib:
 
     def zprivate_split_main(self):
         # Get the start of the split
-        self.score["#StringLib.SplitStart"] = self.temp["data"]["SplitIndexes"].pop(-1)
+        if self.score["#StringLib.IsReversed"] == 0: self.score["#StringLib.SplitStart"] = self.temp["data"]["SplitIndexes"].pop(-1)
+        if self.score["#StringLib.IsReversed"] == 1: self.score["#StringLib.SplitStart"] = self.temp["data"]["SplitIndexes"].pop(0)
 
         # Get the end of the split
         self.score["#StringLib.SplitStop"] = self.score["#StringLib.SplitStart"]

@@ -7,7 +7,8 @@
 # - #StringLib.IsReversed StringLib: Is the list of indexes reversed?
 
 # Get the start of the split
-execute store result score #StringLib.SplitStart StringLib run data remove storage stringlib:temp data.SplitIndexes[-1]
+execute if score #StringLib.IsReversed StringLib matches 0 store result score #StringLib.SplitStart StringLib run data remove storage stringlib:temp data.SplitIndexes[-1]
+execute if score #StringLib.IsReversed StringLib matches 1 store result score #StringLib.SplitStart StringLib run data remove storage stringlib:temp data.SplitIndexes[0]
 
 # Get the end of the split
 scoreboard players operation #StringLib.SplitStop StringLib = #StringLib.SplitStart StringLib
