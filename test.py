@@ -59,10 +59,19 @@ class stringlib:
         # Get separator length
         self.score["#StringLib.FindLength"] = len(self.input["split"]["Separator"])
 
-        # Return
+        # Split the string
+        if not self.score["#StringLib.RemainingSplits"] == 0: self.zprivate_split_main()
         self.output["split"].insert(0, self.temp["data"]["String"])
+
+        # Return
         self.score["#StringLib.SplitAmount"] += 1
         return self.score["#StringLib.SplitAmount"]
+
+    def zprivate_split_main(self):
+        # Loop through the split indexes
+        self.temp["data"]["SplitIndexes"].pop(-1)
+        self.score["#StringLib.RemainingSplits"] -= 1
+        if self.score["#StringLib.RemainingSplits"] >= 1: self.zprivate_split_main()
 
 # Tests
 lib = stringlib()
@@ -83,6 +92,36 @@ if True:  # Test - Find     // ensure my implementation works the same as the al
         lib.input = {"find": {"String": "Hello World!", "Find": "l", "Amount": -2}}
         asserts.equal(lib.find(), 2)
         asserts.equal(lib.output["find"], [9, 3])
+if True:  # Test - zprivate - split - main
+    print("Test - zprivate - split - main")
+    if True:  # Test - zprivate - split - main - 1
+        print("1 - Test - zprivate - split - main")
+        lib.temp["data"] = {"String": "Hello World !", "SplitIndexes": [5]}
+        lib.score = {"#StringLib.IsReversed": 0, "#StringLib.FindLength": 1, "#StringLib.RemainingSplits": len(lib.temp["data"]["SplitIndexes"])}
+        lib.output["split"] = []
+        lib.zprivate_split_main()
+        asserts.equal(lib.output["split"], ["World !"])
+    if True:  # Test - zprivate - split - main - 2
+        print("2 - Test - zprivate - split - main")
+        lib.temp["data"] = {"String": "Hello World !", "SplitIndexes": [11]}
+        lib.score = {"#StringLib.IsReversed": 1, "#StringLib.FindLength": 1, "#StringLib.RemainingSplits": len(lib.temp["data"]["SplitIndexes"])}
+        lib.output["split"] = []
+        lib.zprivate_split_main()
+        asserts.equal(lib.output["split"], ["!"])
+    if True:  # Test - zprivate - split - main - 3
+        print("3 - Test - zprivate - split - main")
+        lib.temp["data"] = {"String": "Hello World !", "SplitIndexes": [5, 11]}
+        lib.score = {"#StringLib.IsReversed": 0, "#StringLib.FindLength": 1, "#StringLib.RemainingSplits": len(lib.temp["data"]["SplitIndexes"])}
+        lib.output["split"] = []
+        lib.zprivate_split_main()
+        asserts.equal(lib.output["split"], ["World", "!"])
+    if True:  # Test - zprivate - split - main - 4
+        print("4 - Test - zprivate - split - main")
+        lib.temp["data"] = {"String": "Hello World !", "SplitIndexes": [11,5]}
+        lib.score = {"#StringLib.IsReversed": 1, "#StringLib.FindLength": 1, "#StringLib.RemainingSplits": len(lib.temp["data"]["SplitIndexes"])}
+        lib.output["split"] = []
+        lib.zprivate_split_main()
+        asserts.equal(lib.output["split"], ["World", "!"])
 if True:  # Test - Split
     print("Test - Split")
     if True:  # Test - Split - 1

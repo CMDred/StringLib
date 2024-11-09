@@ -48,8 +48,11 @@ data modify storage stringlib:output split set value []
 # Get separator length
 execute store result score #StringLib.FindLength StringLib run data get storage stringlib:input split.Separator
 
-# Return
+# Split the string
+execute unless score #StringLib.RemainingSplits StringLib matches 0 run function stringlib:zprivate/split/main
 data modify storage stringlib:output split prepend from storage stringlib:temp data.String
+
+# Return
 scoreboard players add #StringLib.SplitAmount StringLib 1
 return run scoreboard players get #StringLib.SplitAmount StringLib
 
