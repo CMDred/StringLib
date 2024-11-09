@@ -53,10 +53,14 @@ class stringlib:
         self.temp["data"]["String"] = self.input["split"]["String"]
         self.temp["data"]["SplitIndexes"] = self.output["find"]
 
+        # Empty the output
+        self.output["split"] = []
+
         # Get separator length
         self.score["#StringLib.FindLength"] = len(self.input["split"]["Separator"])
 
         # Return
+        self.output["split"].insert(0, self.temp["data"]["String"])
         self.score["#StringLib.SplitAmount"] += 1
         return self.score["#StringLib.SplitAmount"]
 
