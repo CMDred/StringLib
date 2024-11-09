@@ -68,8 +68,14 @@ class stringlib:
         return self.score["#StringLib.SplitAmount"]
 
     def zprivate_split_main(self):
+        # Get the start of the split
+        self.score["#StringLib.SplitStart"] = self.temp["data"]["SplitIndexes"].pop(-1)
+
+        # Get the end of the split
+        self.score["#StringLib.SplitStop"] = self.score["#StringLib.SplitStart"]
+        self.score["#StringLib.SplitStop"] += self.score["#StringLib.FindLength"]
+
         # Loop through the split indexes
-        self.temp["data"]["SplitIndexes"].pop(-1)
         self.score["#StringLib.RemainingSplits"] -= 1
         if self.score["#StringLib.RemainingSplits"] >= 1: self.zprivate_split_main()
 
