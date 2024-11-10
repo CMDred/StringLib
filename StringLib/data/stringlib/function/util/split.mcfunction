@@ -14,17 +14,17 @@
 ##         Example:                                                                                     ##
 ##                 - String: "Hello World !"                                                            ##
 ##                 - Separator: " "                                                                     ##
-##                 - Amount: 1                                                                          ##
+##                 - n: 1                                                                               ##
 ##                 => Output: ["Hello", "World !"]                                                      ##
 ##                                                                                                      ##
 ##                 - String: "Hello World !"                                                            ##
 ##                 - Separator: " "                                                                     ##
-##                 - Amount: 0                                                                          ##
+##                 - n: 0                                                                               ##
 ##                 => Output: ["Hello", "World", "!"]                                                   ##
 ##                                                                                                      ##
 ##                 - String: "2 + 2 + 4 = 8"                                                            ##
 ##                 - Separator: "+"                                                                     ##
-##                 - Amount: -1                                                                         ##
+##                 - n: -1                                                                              ##
 ##                 => Output: ["2 + 2 ", " 4 = 8"]                                                      ##
 ##                                                                                                      ##
 ## Return value: Number of texts in the output storage                                                  ##
