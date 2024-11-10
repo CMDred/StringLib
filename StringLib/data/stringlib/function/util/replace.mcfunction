@@ -16,19 +16,19 @@
 ##                 - String: "Hello World!"                                                             ##
 ##                 - Find: "World"                                                                      ##
 ##                 - Replace: "Everyone"                                                                ##
-##                 - Amount: 1                                                                          ##
+##                 - n: 1                                                                               ##
 ##                 => Output: "Hello Everyone!"                                                         ##
 ##                                                                                                      ##
 ##                 - String: "15Hello 15World!"                                                         ##
 ##                 - Find: "15"                                                                         ##
 ##                 - Replace: ""                                                                        ##
-##                 - Amount: Unset                                                                      ##
+##                 - n: Unset                                                                           ##
 ##                 => Output: "Hello World!"                                                            ##
 ##                                                                                                      ##
 ##                 - String: "Hello World!"                                                             ##
 ##                 - Find: "l"                                                                          ##
 ##                 - Replace: ""                                                                        ##
-##                 - Amount: -1                                                                         ##
+##                 - n: -1                                                                              ##
 ##                 => Output: "Hello Word!"                                                             ##
 ##                                                                                                      ##
 ## Return value: Number of replacements made                                                            ##

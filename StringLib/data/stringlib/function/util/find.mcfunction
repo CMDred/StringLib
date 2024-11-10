@@ -14,17 +14,17 @@
 ##         Example:                                                                                     ##
 ##                 - String: "Hello World!"                                                             ##
 ##                 - Find: "l"                                                                          ##
-##                 - Amount: 1                                                                          ##
+##                 - n: 1                                                                               ##
 ##                 => Output: [2]                                                                       ##
 ##                                                                                                      ##
 ##                 - String: "Hello World!"                                                             ##
 ##                 - Find: "l"                                                                          ##
-##                 - Amount: Unset                                                                      ##
+##                 - n: Unset                                                                           ##
 ##                 => Output: [2,3,9]                                                                   ##
 ##                                                                                                      ##
 ##                 - String: "Hello World!"                                                             ##
 ##                 - Find: "l"                                                                          ##
-##                 - Amount: -2                                                                         ##
+##                 - n: -2                                                                              ##
 ##                 => Output: [9,3]                                                                     ##
 ##                                                                                                      ##
 ## Return value: Number of instances found                                                              ##
