@@ -27,7 +27,9 @@ You can find the utility functions in `stringlib:util/...`. In each function, th
 
 ## Credit
 From CMDred:
-- **SilicatYT**
+- **SilicatYT:** StringLib
+Outstanding contributions:
+- **Rignchen:** split
 
 ## Good to know
 - If you no longer need StringLib or want to upgrade to a newer version, you can run `/function stringlib:uninstall` to remove all the data storage and scoreboard entries.
