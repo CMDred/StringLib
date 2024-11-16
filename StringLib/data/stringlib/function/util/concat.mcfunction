@@ -1,14 +1,16 @@
-##########################################################################################################
-##                                              HOW TO USE                                              ##
-##########################################################################################################
-## 1. Set the 'stringlib:input concat' data storage to a list of strings                                ##
-## 2. Run this function                                                                                 ##
-##                                                                                                      ##
-## Output: A single combined string                                                                     ##
-##         Example: ["hello","world"] => "helloworld"                                                   ##
-##                                                                                                      ##
-## The output is found in the 'stringlib:output concat' data storage                                    ##
-##########################################################################################################
+############################################################################
+##                               HOW TO USE                               ##
+############################################################################
+## 1. Set the 'stringlib:input concat' data storage to a list of strings  ##
+## 2. Run this function                                                   ##
+##                                                                        ##
+## Output: A single combined string                                       ##
+##         Example: ["hello","world"] => "helloworld"                     ##
+##                                                                        ##
+## Return value: 1 if concat was successful, fail if it wasn't            ##
+##                                                                        ##
+## The output is found in the 'stringlib:output concat' data storage      ##
+############################################################################
 
 # Setup (Get how many times it needs to concatenate & prepare the starting string)
 execute store result score #StringLib.StringsTotal StringLib if data storage stringlib:input concat[]

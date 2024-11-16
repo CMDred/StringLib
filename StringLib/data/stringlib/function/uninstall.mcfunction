@@ -6,7 +6,7 @@ execute unless score #StringLib.Init StringLib.Uninstall matches 1 run return ru
 scoreboard objectives remove StringLib.Uninstall
 
 # Tellraw
-tellraw @s ["﹌ ",{"text":"StringLib >> ","color":"#99EAD6"},"Uninstalled StringLib (v0.1.0)"]
+tellraw @s ["﹌ ",{"text":"StringLib >> ","color":"#99EAD6"},"Uninstalled StringLib (v0.2.0)"]
 
 # Remove scoreboards & data storages
 scoreboard objectives remove StringLib
@@ -21,6 +21,10 @@ scoreboard players reset #StringLib.ConcatsLeft
 scoreboard players reset #StringLib.SuccessCheck
 scoreboard players reset #StringLib.FindLength
 scoreboard players reset #StringLib.FindAmount
+scoreboard players reset #StringLib.KeepEmpty
+scoreboard players reset #StringLib.SeparatorLength
+scoreboard players reset #StringLib.Max
+scoreboard players reset #StringLib.SplitsLeft
 scoreboard players reset #StringLib.Index
 scoreboard players reset #StringLib.FoundNothing
 scoreboard players reset #StringLib.ReturnValue
@@ -32,6 +36,7 @@ data remove storage stringlib:input concat
 data remove storage stringlib:input find
 data remove storage stringlib:input replace
 data remove storage stringlib:input insert
+data remove storage stringlib:input split
 data remove storage stringlib:output concat
 data remove storage stringlib:output to_lowercase
 data remove storage stringlib:output to_uppercase
@@ -40,3 +45,4 @@ data remove storage stringlib:output to_string
 data remove storage stringlib:output find
 data remove storage stringlib:output replace
 data remove storage stringlib:output insert
+data remove storage stringlib:output split

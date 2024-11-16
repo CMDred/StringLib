@@ -31,7 +31,7 @@
 ##                 - n: -1                                                                              ##
 ##                 => Output: "Hello Word!"                                                             ##
 ##                                                                                                      ##
-## Return value: Number of replacements made                                                            ##
+## Return value: Number of replacements made, or fail                                                   ##
 ##                                                                                                      ##
 ## The output is found in the 'stringlib:output replace' data storage                                   ##
 ##########################################################################################################

@@ -27,7 +27,7 @@
 ##                 - n: -2                                                                              ##
 ##                 => Output: [9,3]                                                                     ##
 ##                                                                                                      ##
-## Return value: Number of instances found                                                              ##
+## Return value: Number of instances found, or fail                                                     ##
 ##                                                                                                      ##
 ## The output is found in the 'stringlib:output find' data storage                                      ##
 ##########################################################################################################
