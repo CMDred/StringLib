@@ -18,6 +18,8 @@ For inquiries, please contact **@silicatYT** on Discord.
   - Example: `127b` &rarr; `"127"`
 - `to_number`: Convert a stringified number to a number.
   - Example: `"512"` &rarr; `512`
+- `split`: Split a string into multiple, based on a separator character or string. Decide whether to keep or remove empty strings.
+  - Example: `"Hello World"` &rarr; `["Hello", "World]`
 - and more to come!
 
 ## How to use
