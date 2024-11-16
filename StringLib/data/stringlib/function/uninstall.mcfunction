@@ -13,6 +13,7 @@ scoreboard objectives remove StringLib
 
 scoreboard players reset #StringLib.Init
 scoreboard players reset #StringLib.ShowLoadMessage
+scoreboard players reset #StringLib.c-1
 scoreboard players reset #StringLib.c100
 scoreboard players reset #StringLib.StringsTotal
 scoreboard players reset #StringLib.CharsLeft

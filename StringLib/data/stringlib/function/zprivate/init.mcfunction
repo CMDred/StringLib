@@ -2,6 +2,7 @@
 scoreboard players set #StringLib.Init StringLib 1
 execute unless score #StringLib.ShowLoadMessage StringLib matches 0 run scoreboard players set #StringLib.ShowLoadMessage StringLib 1
 
+scoreboard players set #StringLib.c-1 StringLib -1
 scoreboard players set #StringLib.c100 StringLib 100
 
 data modify storage stringlib:zprivate data.CharMap.Fast set value [{u:"A",l:"a"},{u:"B",l:"b"},{u:"C",l:"c"},{u:"D",l:"d"},{u:"E",l:"e"},{u:"F",l:"f"},{u:"G",l:"g"},{u:"H",l:"h"},{u:"I",l:"i"},{u:"J",l:"j"},{u:"K",l:"k"},{u:"L",l:"l"},{u:"M",l:"m"},{u:"N",l:"n"},{u:"O",l:"o"},{u:"P",l:"p"},{u:"Q",l:"q"},{u:"R",l:"r"},{u:"S",l:"s"},{u:"T",l:"t"},{u:"U",l:"u"},{u:"V",l:"v"},{u:"W",l:"w"},{u:"X",l:"x"},{u:"Y",l:"y"},{u:"Z",l:"z"}]
